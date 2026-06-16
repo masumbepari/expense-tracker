@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
+import 'package:intl/intl.dart';
 
 const uuid = Uuid();
-enum Category {food, travel, education,supscription}
+final formmatter = DateFormat.yMd();
+enum Category {food, travel, education,subscription}
 
-class Expense extends StatelessWidget{
-   Expense({super.key,
+const categoryIcons = {
+  Category.food: Icons.lunch_dining,
+  Category.travel: Icons.flight_takeoff,
+  Category.education: Icons.cast_for_education,
+  Category.subscription: Icons.subscriptions
+};
+
+class Expense {
+   Expense({
   required this.title,
   required this.amount,
   required this.date,
@@ -18,8 +27,7 @@ class Expense extends StatelessWidget{
   final DateTime date;
   final Category category;
 
-  @override
-  Widget build (BuildContext context){
-    return Text("expense");
-  }
+ String get getFormattedDate {
+  return formmatter.format(date);
+ }
 }

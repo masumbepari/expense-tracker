@@ -22,12 +22,23 @@ class _ExpensesState extends State<Expenses> {
       title: "Google Cloud",
       amount: 300.00,
       date: DateTime.now(),
-      category: Category.supscription,
+      category: Category.subscription,
     ),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Expense Tracker'),
+        actions: [
+          IconButton(
+            tooltip: 'add expnese',
+            onPressed: () {},
+            icon: Icon(Icons.add),
+            
+          ),
+        ],
+      ),
       body: Column(
         children: [
           Text("The Chart"),
