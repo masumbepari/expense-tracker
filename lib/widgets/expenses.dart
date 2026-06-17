@@ -1,5 +1,6 @@
 import 'package:expense_tracker/widgets/expense_list/expenses_list.dart';
 import 'package:expense_tracker/model/expense.dart';
+import 'package:expense_tracker/widgets/new_expense.dart';
 import 'package:flutter/material.dart';
 
 class Expenses extends StatefulWidget {
@@ -25,6 +26,14 @@ class _ExpensesState extends State<Expenses> {
       category: Category.subscription,
     ),
   ];
+
+  void _openAddExpense() {
+    showModalBottomSheet(
+      context: context,
+      builder: (ctx) => NewExpense(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,9 +42,8 @@ class _ExpensesState extends State<Expenses> {
         actions: [
           IconButton(
             tooltip: 'add expnese',
-            onPressed: () {},
+            onPressed: _openAddExpense,
             icon: Icon(Icons.add),
-            
           ),
         ],
       ),
